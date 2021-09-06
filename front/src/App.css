@@ -5,19 +5,26 @@
   transform: translate(-50%,-50%);
 }
 
+#video_player{
+  width: 1264px;
+  height: 711px;
+  overflow: hidden;
+}
+.vid_fullscreen{
+  width: 100% !important;
+  height: auto !important;
+}
+
 #video_contols{
   position: absolute;
   bottom: 4px;
   width: 100%;
   display: flex;
   align-items: center;
-
+  background-color: rgba(0, 0, 0, .1);
+  z-index: 5;
 }
 
-#play_button{
-  width: 46px;
-  margin-left: 5px;
-}
 
 #video_volume_button{
 
@@ -29,10 +36,6 @@
 }
 
 
-#video_volume_slider{
-  cursor: pointer;
-}
-
 
 
 input[type="range"] {
@@ -43,7 +46,7 @@ input[type="range"] {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   background-image: linear-gradient(#fff, #fff);
-  background-size: 50% 100%;
+  
   background-repeat: no-repeat;
 }
 
@@ -104,7 +107,7 @@ input[type="range"]::-ms-track {
 
 .progress_bar{
   background-color: rgba(255, 255, 255, .1);
-  width: 1232px;
+  width: 100%;
   height: 3px;
   position: absolute;
   bottom: 43px;
@@ -116,7 +119,7 @@ input[type="range"]::-ms-track {
 
 .progress_bar_filled{
   width: 0%;
-  height: 3px;
+  height: inherit;
   background-color: red;
   float: left;
   z-index: 1;
@@ -125,7 +128,7 @@ input[type="range"]::-ms-track {
 
 .progress_bar_downloaded{
   width: 0%;
-  height: 3px;
+  height: inherit;
   background-color: rgba(255, 255, 255, .5);
   left: 0;
   float: left;
@@ -133,6 +136,77 @@ input[type="range"]::-ms-track {
 
 }
 
+.progress_bar:hover{
+  height: 5px;
+}
+
+.playpause{
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.playpause label {
+  display: block;
+  box-sizing: border-box;
+  width: 0;
+  height: 17px;
+  border-color: transparent transparent transparent #fff;
+  transition: 100ms all ease;
+  cursor: pointer;
+  border-style: double;
+  border-width: 0px 0 0px 17px;
+}
+.playpause input[type=checkbox] {
+  position: absolute;
+  left: -9999px;
+}
+.playpause input[type=checkbox]:checked + label {
+  border-style: solid;
+  border-width: 10px 0 10px 17px;
+}
+
+.fullscreen_button{
+  font-size: 20px !important;
+  position: absolute;
+  right: 1rem;
+}
+
+
+
+#video_volume_slider{
+  cursor: pointer;
+  margin-left: 5px;
+  overflow: hidden;
+  width: 0;
+  transition: width .3s ease-in-out;
+}
+
+
+.volume_svg{
+  width: 24px;
+  cursor: pointer;
+}
+
+.show_slider{
+  overflow: visible !important;
+  width: 100px !important;
+}
+
+.time_container_span{
+  color: #fff;
+  user-select: none;
+  font-family:'Times New Roman', Times, serif;
+}
+
+#video_player::-webkit-media-controls {
+  display:none !important;
+}
+#video_player::-webkit-media-controls-enclosure {
+  display:none !important;
+}
 
 .video_buttons{
   cursor: pointer;
@@ -140,8 +214,8 @@ input[type="range"]::-ms-track {
   color: #fff;
   outline: none;
   border: none;
-  font-size: 15px;
+  font-size: 17px;
   height: 45px;
-  width: 40px;
+  width: 50px;
 }
 
