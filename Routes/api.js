@@ -3,7 +3,7 @@ const fs = require("fs")
 router.get('/video',(req,res)=>{
     const range = req.headers.range
     if(!range) return res.status(400).send("Requires range header")
-    const videoPath = './test.mp4'
+    const videoPath = './video/test.mp4'
     const videoSize = fs.statSync(videoPath).size
     const downloadSize = 1000000
     const start = Number(range.replace(/\D/g,""))
